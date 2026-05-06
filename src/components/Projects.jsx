@@ -19,7 +19,7 @@ const Projects = () => {
       title: 'E-Commerce Platform',
       description: 'A beautifully designed frontend e-commerce platform showcasing products with smooth navigation and modern UI/UX patterns.',
       tech: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS'],
-      demoLink: 'ecommerce-website-101.netlify.app',  
+      demoLink: 'https://ecommerce-website-101.netlify.app',
       githubLink: 'https://github.com/eskedar12/ecommerce-website',
       image: 'src/assets/project1.png',
       features: [
