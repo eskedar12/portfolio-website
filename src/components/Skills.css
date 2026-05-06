@@ -1,0 +1,234 @@
+.skills-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%);
+  padding: 80px 5%;
+  position: relative;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 3 Column Layout */
+.skills-three-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Individual Column */
+.skill-column {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-column:hover {
+  transform: translateY(-5px);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.column-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.5);
+  color: #667eea;
+  position: relative;
+}
+
+.column-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* Skills inside column */
+.column-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.column-skill-item {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skill Row - Name and Percentage on same line */
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ccd6f6;
+}
+
+.skill-percentage-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 10px;
+  transition: width 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  position: relative;
+}
+
+/* Shimmer effect on progress bar */
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Hover effect on skill items */
+.column-skill-item:hover .skill-name-text {
+  color: #667eea;
+  transition: color 0.3s ease;
+}
+
+.column-skill-item:hover .progress-fill {
+  filter: brightness(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .skills-three-columns {
+    gap: 1.5rem;
+  }
+  
+  .skill-column {
+    padding: 1.5rem 1rem;
+  }
+  
+  .column-title {
+    font-size: 1.3rem;
+  }
+  
+  .skill-name-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 5%;
+  }
+  
+  .skills-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .skills-three-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skill-column {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .column-title {
+    text-align: center;
+  }
+  
+  .column-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 40px 5%;
+  }
+  
+  .skills-title {
+    font-size: 1.8rem;
+  }
+  
+  .skill-column {
+    padding: 1.25rem;
+  }
+  
+  .column-title {
+    font-size: 1.2rem;
+  }
+  
+  .skill-name-text {
+    font-size: 0.85rem;
+  }
+  
+  .skill-percentage-text {
+    font-size: 0.8rem;
+  }
+}
